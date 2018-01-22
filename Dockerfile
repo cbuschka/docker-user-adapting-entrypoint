@@ -1,6 +1,9 @@
 FROM debian:stretch
 
-ENV HOME /worker
+ENV WORKER_NAME worker
+ENV WORKER_UID 1000
+ENV WORKER_GID 1000
+ENV WORKER_HOME /home/worker
 
 WORKDIR /work
 

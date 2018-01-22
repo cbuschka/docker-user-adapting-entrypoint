@@ -22,19 +22,25 @@ docker build --tag docker-user-adapting-entrypoint:local .
 
 ## Run
 ```
+# WORKER_ vars are optional
 docker run -ri --rm -v /var/run/docker.sock \
-	-e WORKER_USER_UID=$(id -u) -e WORKER_USER_GID=$(id -g) \
+	-e WORKER_UID=$(id -u) \
+	-e WORKER_GID=$(id -g) \
+	-e WORKER_HOME=/home/sweethome \
+	-e WORKER_NAME=wrkr \
 	-v volume-in-work-dir:/work \
-	-v some-subdir-in-home:/worker/subdir \
 	docker-user-adapting-entrypoint:local bash
 ```
 
 ## Run (with docker access from within container)
 ```
+# WORKER_ vars are optional
 docker run -ri --rm -v /var/run/docker.sock \
-	-e WORKER_USER_UID=$(id -u) -e WORKER_USER_GID=$(id -g) \
+	-e WORKER_UID=$(id -u) \
+	-e WORKER_GID=$(id -g) \
+	-e WORKER_HOME=/home/sweethome \
+	-e WORKER_NAME=wrkr \
 	-v volume-in-work-dir:/work \
-	-v some-subdir-in-home:/worker/subdir \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	docker-user-adapting-entrypoint:local bash
 ```
