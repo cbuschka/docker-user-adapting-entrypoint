@@ -2,7 +2,10 @@
 
 #
 # This is the user adapting entry point for docker.
+#
 # Original [repository](https://github.com/cbuschka/docker-user-adapting-entrypoint) at github.
+#
+# Written by [Cornelius Buschka](https://github.com/cbuschka).
 #
 
 DEFAULT_WORKER_UID=1000
